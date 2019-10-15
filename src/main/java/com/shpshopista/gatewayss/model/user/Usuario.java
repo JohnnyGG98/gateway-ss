@@ -1,66 +1,66 @@
 package com.shpshopista.gatewayss.model.user;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
-import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import org.hibernate.annotations.Where;
 
 /**
  *
  * @author Johnny
  */
+@Where(clause = "user_activo = true")
 @Entity
-@Table(name = "usuario")
+@Table(
+        name = "\"Usuarios\"",
+        schema = "public"
+)
 public class Usuario implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario")
-    private long id;
+    private long id_usuario;
 
-    @Column(name = "username", nullable = false, unique = true)
-    private String username;
+    @Column(name = "user_nick", nullable = false, unique = true)
+    private String nick;
 
-    @Column(name = "password", nullable = false)
+    @Column(name = "user_pass", nullable = false)
     //@JsonIgnore
-    private String password;
+    private String user_pass;
 
-    @Column(name = "user_tipo")
+    @Column(name = "user_tipo", nullable = false, columnDefinition = "character varying(1) DEFAULT 'C'")
     private String user_tipo;
 
-    @Column(name = "user_activo")
+    @Column(name = "user_activo", columnDefinition = "BOOLEAN DEFAULT 'true'")
     private boolean user_activo = true;
 
-    public long getId() {
-        return id;
+    public long getId_usuario() {
+        return id_usuario;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setId_usuario(long id_usuario) {
+        this.id_usuario = id_usuario;
     }
 
-    public String getUsername() {
-        return username.toLowerCase();
+    public String getUser_nick() {
+        return nick;
     }
 
-    public void setUsername(String username) {
-        username = username.toLowerCase();
-        this.username = username;
+    public void setUser_nick(String user_nick) {
+        this.nick = user_nick;
     }
 
-    public String getPassword() {
-        return password;
+    public String getUser_pass() {
+        return user_pass;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setUser_pass(String user_pass) {
+        this.user_pass = user_pass;
     }
 
     public String getUser_tipo() {
@@ -68,7 +68,6 @@ public class Usuario implements Serializable {
     }
 
     public void setUser_tipo(String user_tipo) {
-        user_tipo = user_tipo.toUpperCase();
         this.user_tipo = user_tipo;
     }
 

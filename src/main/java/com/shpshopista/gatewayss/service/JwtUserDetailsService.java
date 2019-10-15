@@ -42,29 +42,28 @@ public class JwtUserDetailsService implements UserDetailsService {
             );
         }*/
 
-        Usuario user = userRepo.findByUsername(username);
+        Usuario user = userRepo.findByNick(username);
         if (user == null) {
             throw new UsernameNotFoundException(
                     "Usuario no encontrao: "
                     + username
             );
         }
-        
+
         /*System.out.println("Numero de roles: " + user.getRoles().size());
         user.getRoles().forEach(r -> {
             System.out.println("ROL: " + r.getRol().getRol_nombre());
         });*/
-
         return new User(
-                user.getUsername(),
-                user.getPassword(),
+                user.getUser_nick(),
+                user.getUser_pass(),
                 new ArrayList<>()
         );
     }
 
     public Usuario save(Usuario user) {
-        user.setPassword(
-                bCryptEncoder.encode(user.getPassword())
+        user.setUser_pass(
+                bCryptEncoder.encode(user.getUser_pass())
         );
 
         return userRepo.save(user);

@@ -52,7 +52,7 @@ public class LoginController {
                 .loadUserByUsername(authRequest.getUsername());
         final String token = jwtTokenUtil.generateToken(userDetails);
 
-        return ResponseEntity.ok(new LoginRP(token, userRepo.findByUsername(authRequest.getUsername())));
+        return ResponseEntity.ok(new LoginRP(token, userRepo.findByNick(authRequest.getUsername())));
     }
 
     @RequestMapping(value = "/registrar", method = RequestMethod.POST)

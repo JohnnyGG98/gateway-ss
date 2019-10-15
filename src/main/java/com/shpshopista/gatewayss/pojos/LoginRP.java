@@ -16,8 +16,8 @@ public class LoginRP implements Serializable {
 
     public LoginRP(String token, Usuario user) {
         this.jwttoken = token;
-        this.id_user = user.getId();
-        this.user_name = user.getUsername();
+        this.id_user = user.getId_usuario();
+        this.user_name = user.getUser_nick();
         this.user_tipo = user.getUser_tipo();
     }
 

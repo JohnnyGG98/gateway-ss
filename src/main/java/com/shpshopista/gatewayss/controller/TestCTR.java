@@ -12,15 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @CrossOrigin(origins = "*")
 public class TestCTR {
-    
+
     @RequestMapping("/saluda")
-    public Usuario hello(){
+    public Usuario hello() {
         Usuario u = new Usuario();
-        u.setUsername("Taguz");
-        u.setPassword("Passs");
-        u.setId(1);
+        u.setUser_nick("Taguz");
+        u.setUser_pass("Passs");
+        u.setId_usuario(10);
         u.setUser_activo(true);
         return u;
     }
-    
+
 }

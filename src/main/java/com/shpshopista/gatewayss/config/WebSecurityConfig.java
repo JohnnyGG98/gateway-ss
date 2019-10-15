@@ -58,6 +58,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(
                         "/",
                         "/login",
+                        "/registrar",
                         "/eureka/**"
                 ).permitAll()
                 // Para permitir las peticiones desde angular
