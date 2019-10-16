@@ -55,15 +55,15 @@ public class JwtUserDetailsService implements UserDetailsService {
             System.out.println("ROL: " + r.getRol().getRol_nombre());
         });*/
         return new User(
-                user.getUser_nick(),
-                user.getUser_pass(),
+                user.getNick(),
+                user.getPass(),
                 new ArrayList<>()
         );
     }
 
     public Usuario save(Usuario user) {
-        user.setUser_pass(
-                bCryptEncoder.encode(user.getUser_pass())
+        user.setPass(
+                bCryptEncoder.encode(user.getPass())
         );
 
         return userRepo.save(user);

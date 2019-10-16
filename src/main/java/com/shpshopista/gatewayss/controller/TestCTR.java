@@ -16,10 +16,9 @@ public class TestCTR {
     @RequestMapping("/saluda")
     public Usuario hello() {
         Usuario u = new Usuario();
-        u.setUser_nick("Taguz");
-        u.setUser_pass("Passs");
-        u.setId_usuario(10);
-        u.setUser_activo(true);
+        u.setNick("Taguz");
+        u.setPass("Passs");
+        u.setId(10);
         return u;
     }
 

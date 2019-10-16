@@ -24,59 +24,59 @@ public class Usuario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario")
-    private long id_usuario;
+    private long id;
 
     @Column(name = "user_nick", nullable = false, unique = true)
     private String nick;
 
     @Column(name = "user_pass", nullable = false)
     //@JsonIgnore
-    private String user_pass;
+    private String pass;
 
     @Column(name = "user_tipo", nullable = false, columnDefinition = "character varying(1) DEFAULT 'C'")
-    private String user_tipo;
+    private String tipo;
 
     @Column(name = "user_activo", columnDefinition = "BOOLEAN DEFAULT 'true'")
-    private boolean user_activo = true;
+    private boolean activo = true;
 
-    public long getId_usuario() {
-        return id_usuario;
+    public long getId() {
+        return id;
     }
 
-    public void setId_usuario(long id_usuario) {
-        this.id_usuario = id_usuario;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public String getUser_nick() {
+    public String getNick() {
         return nick;
     }
 
-    public void setUser_nick(String user_nick) {
-        this.nick = user_nick;
+    public void setNick(String nick) {
+        this.nick = nick;
     }
 
-    public String getUser_pass() {
-        return user_pass;
+    public String getPass() {
+        return pass;
     }
 
-    public void setUser_pass(String user_pass) {
-        this.user_pass = user_pass;
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
-    public String getUser_tipo() {
-        return user_tipo;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setUser_tipo(String user_tipo) {
-        this.user_tipo = user_tipo;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
-    public boolean isUser_activo() {
-        return user_activo;
+    public boolean isActivo() {
+        return activo;
     }
 
-    public void setUser_activo(boolean user_activo) {
-        this.user_activo = user_activo;
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
 
 }
