@@ -4,6 +4,7 @@ import com.shpshopista.gatewayss.pojos.LoginRQ;
 import com.shpshopista.gatewayss.config.JwtTokenUtil;
 import com.shpshopista.gatewayss.pojos.LoginRP;
 import com.shpshopista.gatewayss.model.user.Usuario;
+import com.shpshopista.gatewayss.pojos.UsuarioRP;
 import com.shpshopista.gatewayss.repository.IUsuarioREPO;
 import com.shpshopista.gatewayss.service.JwtUserDetailsService;
 import javax.validation.Valid;
@@ -52,7 +53,9 @@ public class LoginController {
                 .loadUserByUsername(authRequest.getUsername());
         final String token = jwtTokenUtil.generateToken(userDetails);
 
-        return ResponseEntity.ok(new LoginRP(token, userRepo.findByNick(authRequest.getUsername())));
+        //UsuarioRP u = userRepo.buscarPorNick(authRequest.getUsername());
+        //return ResponseEntity.ok(new LoginRP(token, userRepo.findByNick(authRequest.getUsername())));
+        return ResponseEntity.ok(new LoginRP(token, userRepo.buscarPorNick(authRequest.getUsername())));
     }
 
     @RequestMapping(value = "/registrar", method = RequestMethod.POST)
